@@ -43,9 +43,34 @@ const bike = {
     locaiton: "Isle 12",
     weight: 42
 }
-toys.push(frisbee)
-toys.push(bike)
+
+const addToyToInventory = (toyObject) => {
+    const lastIndex = toys.length - 1
+
+    const currentLastToy = toys[lastIndex]
+
+    const maxId = currentLastToy.id
+
+    const idForNewToy = maxId + 1
+
+    toyObject.id = idForNewToy
+
+    toys.push(toyObject)
+}
+
+const plane = {
+    name: "plane",
+    maker: "Fly Toys",
+    price: 14,
+    locaiton: "Isle 2",
+    weight: 3
+}
+
+addToyToInventory(plane)
 
 for (const toy of toys) {
-console.log(`The ${toy.name} cost ${toy.price} dollars.`)
+    console.log(`The ${toy.name} costs ${toy.price} dollars. It weighs ${toy.weight} lbs.`)
 }
+
+console.log(toys)
+
